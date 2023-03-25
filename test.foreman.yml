@@ -1,3 +1,1 @@
 plugin: theforeman.foreman.foreman
-url: https://satellite.lab.automate.nyc
-validate_certs: no
