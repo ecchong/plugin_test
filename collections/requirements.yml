@@ -1,0 +1,4 @@
+# test custom foreman plugin
+- name: https://github.com/ecchong/foreman-ansible-modules.git
+  version: inventory_retry
+  type: git
