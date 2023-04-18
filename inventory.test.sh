@@ -10,7 +10,8 @@ cat<<EOF
 	],
 	"vars": {
 	  "host_proxy_var": "proxy2",
-    "FOREMAN_USERNAME": "$FOREMAN_USERNAME"
+    "FOREMAN_USERNAME": "$FOREMAN_USERNAME",
+    "some_var": "{{ foo }}"
 	}
   },
   "_meta": {
