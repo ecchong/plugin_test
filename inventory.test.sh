@@ -1,21 +1,32 @@
 #!/bin/bash
 
-INV="{
-\"all\": {
- \"children\": {
-   \"dummy_hosts\": {
-    \"hosts\": {
-      \"node1\": \"\",
-      \"node2\": \"\",
-      \"node3\": \"\"
-     },
-    \"vars\": {
-       \"my_var\": \"123\",
-       \"FOREMAN_USERNAME\": \"$FOREMAN_USERNAME\"
-    }
+if [ "$1" == "--list" ] ; then
+cat<<EOF
+{
+  "bash_hosts": {
+	"hosts": [
+	  "10.220.21.24",
+	  "10.220.21.27"
+	],
+	"vars": {
+	  "host_proxy_var": "proxy2",
+    "FOREMAN_USERNAME": "$FOREMAN_USERNAME"
+	}
+  },
+  "_meta": {
+	"hostvars": {
+	  "10.220.21.24": {
+		"host_specific_var": "towerhost"
+	  },
+	  "10.220.21.27": {
+		"host_specific_var": "testhost"
+	  }
+	}
   }
- }
-}
-}"
-
-echo $INV
+} 
+EOF
+elif [ "$1" == "--host" ]; then
+  echo '{"_meta": {"hostvars": {}}}'
+else
+  echo "{ }"
+fi
